@@ -13,37 +13,41 @@
                 class="absolute left-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                 <div class="px-1 py-1">
                     <MenuItem>
-                    <Link href="/" class="text-gray-700 block px-4 py-2 text-sm">New Folder</Link>
+                    <a href="#" @click.prevent="showCreateFolderModal" class="text-gray-700 block px-4 py-2 text-sm">New
+                        Folder</a>
                     </MenuItem>
                 </div>
                 <div class="px-1 py-1">
                     <MenuItem>
-                    <Link href="/" class="text-gray-700 block px-4 py-2 text-sm">Upload Files</Link>
+                    <a href="/" class="text-gray-700 block px-4 py-2 text-sm">Upload Files</a>
                     </MenuItem>
                     <MenuItem>
-                    <Link href="/" class="text-gray-700 block px-4 py-2 text-sm">Upload Folder</Link>
+                    <a href="/" class="text-gray-700 block px-4 py-2 text-sm">Upload Folder</a>
                     </MenuItem>
                 </div>
             </MenuItems>
         </transition>
     </Menu>
+    <CreateFolderModal v-model="createFolderModal" />
 </template>
 
 <script setup>
 // Imports
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-import { Link } from '@inertiajs/vue3';
+import CreateFolderModal from "@/Components/App/CreateFolderModal.vue"
+import { ref } from 'vue'
 // Uses
 
 // Refs
-
+const createFolderModal = ref(false)
 // Props & Emits
 
 // Computed
 
 // Methods
-
+function showCreateFolderModal() {
+    createFolderModal.value = true
+}
 // Hooks
 
 </script>
